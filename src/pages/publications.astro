@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Publications"
+  description="[PLACEHOLDER] Publications by [NAME PLACEHOLDER]."
+>
+  <div class="px-6 py-20">
+    <div class="mx-auto" style="max-width: var(--content-width);">
+
+      <p class="mb-3 text-xs font-semibold uppercase tracking-widest text-accent">Publications</p>
+      <h1 class="mb-12 font-serif text-4xl font-bold tracking-tight text-slate-900" style="letter-spacing: -0.02em;">
+        Publications
+      </h1>
+
+      <!-- Publication entry template — duplicate for each paper -->
+      <section class="space-y-8">
+
+        <article class="group border-l-2 border-slate-200 pl-5 transition-colors duration-200 hover:border-accent">
+          <p class="mb-1 text-xs font-medium uppercase tracking-wider text-slate-400">
+            [PLACEHOLDER — Venue / Conference / Journal] &nbsp;·&nbsp; [PLACEHOLDER — Year]
+          </p>
+          <h2 class="mb-2 text-base font-semibold text-slate-900 group-hover:text-accent transition-colors duration-200">
+            <!-- PLACEHOLDER: replace with actual paper title -->
+            [PLACEHOLDER — Paper Title]
+          </h2>
+          <p class="mb-3 text-sm text-slate-500">
+            <!-- PLACEHOLDER: replace with actual author list -->
+            [PLACEHOLDER — Author 1], [PLACEHOLDER — Author 2], ...
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="#" class="text-xs font-medium text-accent hover:text-accent-hover transition-colors duration-200">
+              Paper →
+            </a>
+            <a href="#" class="text-xs font-medium text-slate-400 hover:text-slate-600 transition-colors duration-200">
+              Code →
+            </a>
+          </div>
+        </article>
+
+        <!-- Add more <article> blocks above when you have real publications -->
+
+      </section>
+
+      <p class="mt-16 text-sm text-slate-400">
+        <!-- PLACEHOLDER: remove this note once real publications are added -->
+        Publications will be listed here. Content is to be provided.
+      </p>
+
+    </div>
+  </div>
+</BaseLayout>

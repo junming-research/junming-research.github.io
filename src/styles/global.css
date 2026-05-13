@@ -1,0 +1,85 @@
+/* ── Fonts ───────────────────────────────────────────────── */
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/playfair-display';
+@import '@fontsource/jetbrains-mono/400.css';
+
+/* ── Tailwind v4 ─────────────────────────────────────────── */
+@import "tailwindcss";
+
+/* ── Theme extensions ────────────────────────────────────── */
+@theme {
+  /* Font families */
+  --font-family-sans:  'Inter Variable', 'Inter', system-ui, sans-serif;
+  --font-family-serif: 'Playfair Display Variable', 'Playfair Display', Georgia, serif;
+  --font-family-mono:  'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Accent colour (Royal Blue) */
+  --color-accent:        #0049B7;
+  --color-accent-hover:  #003A94;
+  --color-accent-subtle: #EBF2FF;
+}
+
+/* ── Layout tokens ───────────────────────────────────────── */
+:root {
+  --nav-height:     64px;
+  --content-width:  768px;
+  --layout-width:  1200px;
+}
+
+/* ── Base reset & global styles ──────────────────────────── */
+html {
+  font-family: 'Inter Variable', 'Inter', system-ui, sans-serif;
+  color: #0f172a;
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  /*
+   * Fix: always show a scrollbar track so the viewport width never changes
+   * when switching between pages that do / don't overflow.
+   * This prevents the ~15px horizontal shift of the NavBar and all content.
+   */
+  overflow-y: scroll;
+}
+
+body {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Page transition: fade-out + slide-up-in ─────────────── */
+@keyframes page-fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes page-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}
+
+/* ── Selection colour ────────────────────────────────────── */
+::selection {
+  background-color: #EBF2FF;
+  color: #003A94;
+}
+
+/* ── Focus ring ──────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #0049B7;
+  outline-offset: 2px;
+}
