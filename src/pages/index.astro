@@ -80,7 +80,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <!-- ── Research Interests ─────────────────────────────── -->
       <section class="my-8">
         <p class="mb-4 text-xs font-semibold uppercase tracking-widest text-accent">Research Interests</p>
-        <ul class="space-y-2">
+        <ul class="grid grid-cols-2 gap-x-4 gap-y-2">
           <li class="flex items-start gap-2.5 text-sm text-slate-600">
             <span class="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent"></span>
             Supply Chain Management
@@ -153,6 +153,40 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
         </div>
       </section>
+
+      <hr class="border-slate-200" />
+
+      <!-- ── Visitor Map ──────────────────────────────────── -->
+      <section class="my-8">
+        <p class="mb-4 text-xs font-semibold uppercase tracking-widest text-accent">Visitor Map</p>
+        <div class="flex justify-center opacity-60">
+          <div id="visitor-map-wrapper" class="overflow-x-auto"></div>
+        </div>
+      </section>
+
+      <script is:inline>
+        (function () {
+          function initVisitorMap() {
+            const wrapper = document.getElementById('visitor-map-wrapper');
+            if (!wrapper) return;
+            wrapper.innerHTML = '';
+            const s = document.createElement('script');
+            s.id = 'mapmyvisitors';
+            s.type = 'text/javascript';
+            s.src = 'https://mapmyvisitors.com/map.js?cl=1a3365&w=500&t=tt&d=meqOP1STjLaQKUGzJwa65lAEu7OUysBlkE7KLDl3kwQ&co=ffffff&cmo=ffbb00&cmn=ff4343&ct=1a3365';
+            wrapper.appendChild(s);
+            wrapper.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); }, true);
+            wrapper.addEventListener('contextmenu', function (e) { e.preventDefault(); }, true);
+          }
+
+          initVisitorMap();
+
+          if (!window.__mmvListenerAdded) {
+            document.addEventListener('astro:page-load', initVisitorMap);
+            window.__mmvListenerAdded = true;
+          }
+        })();
+      </script>
 
     </div>
   </div>
